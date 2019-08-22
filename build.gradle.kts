@@ -12,6 +12,7 @@ dependencies {
 repositories {
     google()
     mavenCentral()
+    jcenter()
 }
 
 publishing {
