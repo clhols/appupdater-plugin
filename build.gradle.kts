@@ -20,7 +20,7 @@ publishing {
         create("appupdaterPlugin", MavenPublication::class.java) {
             groupId = "dk.youtec"
             artifactId = "appupdater"
-            version = "1.0"
+            version = "1.0.1"
 
             from(components["java"])
         }
