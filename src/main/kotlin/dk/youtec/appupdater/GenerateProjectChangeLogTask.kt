@@ -27,7 +27,6 @@ open class GenerateProjectChangeLogTask : AppUpdaterGroupTask() {
                 //Prepend new tag with log and limit size
                 val text = """|$tag:
                               |$log
-                              |
                               |${readText()}""".trimMargin().take(4096)
                 writeText(text)
             }
