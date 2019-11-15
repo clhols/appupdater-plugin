@@ -27,7 +27,7 @@ publishing {
         }
     }
     publications {
-        register("appupdaterPlugin", MavenPublication::class.java) {
+        register("gpr", MavenPublication::class.java) {
             groupId = "dk.youtec"
             artifactId = "appupdater"
             version = "1.0.1"
