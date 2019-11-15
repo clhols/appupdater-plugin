@@ -15,5 +15,4 @@ jobs:
         java-version: 1.8      
     - name: Build appupdater plugin
       run: |
-        ./gradlew build
-        mvn deploy -Dregistry=https://maven.pkg.github.com/clhols -Dtoken=GH_TOKEN
+        ./gradlew publishGprPublicationToGitHubPackagesRepository
