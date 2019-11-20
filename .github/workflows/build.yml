@@ -16,4 +16,4 @@ jobs:
     - name: Build appupdater plugin
       run: |
         ./gradlew build
-        ./gradlew publishAppupdaterPluginPublicationToGitHubPackagesRepository
+        ./gradlew -Pgpr.user=clhols -Pgpr.key=${{ secrets.GITHUB_TOKEN }} publishAppupdaterPluginPublicationToGitHubPackagesRepository

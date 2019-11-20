@@ -21,7 +21,8 @@ publishing {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/clhols/appupdater-plugin")
             credentials {
-                password = System.getenv("GITHUB_TOKEN")
+                username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.key") as String? ?: System.getenv("PASSWORD")
             }
         }
     }
