@@ -30,7 +30,7 @@ publishing {
         register("appupdaterPlugin", MavenPublication::class.java) {
             groupId = "dk.youtec"
             artifactId = "appupdater-plugin"
-            version = "1.0.1"
+            version = "1.0.2"
 
             artifact("$buildDir/libs/appupdater-plugin.jar")
         }
