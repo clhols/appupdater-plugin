@@ -1,12 +1,12 @@
 plugins {
-    kotlin("jvm") version "1.3.60"
+    kotlin("jvm") version "1.3.70"
     `maven-publish`
     `java-gradle-plugin`
 }
 
 dependencies {
     compileOnly(gradleApi())
-    implementation("com.android.tools.build:gradle:3.5.2")
+    implementation("com.android.tools.build:gradle:3.6.0")
 }
 
 repositories {
@@ -30,7 +30,7 @@ publishing {
         register("appupdaterPlugin", MavenPublication::class.java) {
             groupId = "dk.youtec"
             artifactId = "appupdater-plugin"
-            version = "1.0.2"
+            version = "1.0.3"
 
             artifact("$buildDir/libs/appupdater-plugin.jar")
         }
