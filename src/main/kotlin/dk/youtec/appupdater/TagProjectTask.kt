@@ -17,19 +17,7 @@ open class TagProjectTask : AppUpdaterGroupTask() {
         androidBasePlugin
                 ?: throw org.gradle.api.GradleException("You must apply the Android plugin or the Android library plugin before using this plugin")
 
-        val android = project.extensions.getByName("android") as com.android.build.gradle.AppExtension
-
-        val versionCodes = android.applicationVariants
-                .asSequence()
-                .filter { it.buildType.name == "release" }
-                .map { it.versionCode }
-                .toSet()
-
-        if (versionCodes.size != 1) {
-            throw org.gradle.api.GradleException("Flavors must have the same version code. Please use getVersionCodeTimestamp()")
-        }
-
-        val versionCode = versionCodes.first()
+        val versionCode = project.layout.buildDirectory.file("versionCode.txt").get().asFile.readText().toInt()
 
         val tagResult = "git tag $versionCode".execute()
         if (tagResult.trim().isNotEmpty())

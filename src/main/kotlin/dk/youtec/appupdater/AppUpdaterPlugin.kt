@@ -5,7 +5,6 @@ import com.android.build.gradle.AppPlugin
 import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.api.plugins.ExtraPropertiesExtension
 
 open class AppUpdaterPlugin : Plugin<Project> {
     override fun apply(project: Project) {
@@ -27,8 +26,6 @@ open class AppUpdaterPlugin : Plugin<Project> {
             }
         }
 
-        val ext = project.extensions.getByName("ext") as ExtraPropertiesExtension
-
         project.plugins.withType(AppPlugin::class.java) {
             val extension = project.extensions.getByName("android") as BaseAppModuleExtension
             extension.configure(project)
@@ -45,7 +42,7 @@ fun BaseAppModuleExtension.configure(project: Project) {
 
     // use filter to apply onVariantProperties to a subset of the variants
     onVariantProperties.withBuildType("release") {
-        // Because app module can have multiple output when using mutli-APK, versionCode/Name
+        // Because app module can have multiple output when using multi-APK, versionCode/Name
         // are only available on the variant output.
         // Here gather the output when we are in single mode (ie no multi-apk)
         val mainOutput = this.outputs.single { it.outputType == OutputType.SINGLE }

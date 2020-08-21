@@ -6,7 +6,7 @@ plugins {
 
 dependencies {
     compileOnly(gradleApi())
-    implementation("com.android.tools.build:gradle:4.0.1")
+    implementation("com.android.tools.build:gradle:4.1+")
 }
 
 repositories {
@@ -30,7 +30,7 @@ publishing {
         register("appupdaterPlugin", MavenPublication::class.java) {
             groupId = "dk.youtec"
             artifactId = "appupdater-plugin"
-            version = "1.0.4-SNAPSHOT"
+            version = "1.0.5"
 
             artifact("$buildDir/libs/appupdater-plugin.jar")
         }
