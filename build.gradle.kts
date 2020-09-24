@@ -6,7 +6,7 @@ plugins {
 
 dependencies {
     compileOnly(gradleApi())
-    implementation("com.android.tools.build:gradle:4.1+")
+    implementation("com.android.tools.build:gradle:4.2+")
 }
 
 repositories {
