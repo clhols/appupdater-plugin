@@ -17,7 +17,7 @@ abstract class VersionCodeTask : AppUpdaterGroupTask() {
     }
 
     @Input
-    val versionCode = dateFormat("yyMMddHHmm").format(Date()).toInt()
+    val versionCode = dateFormat("yyMMddHH").format(Date()).toInt()
 
     @get:OutputFile
     abstract val outputFile: RegularFileProperty

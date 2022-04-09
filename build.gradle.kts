@@ -1,18 +1,21 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
-    kotlin("jvm") version "1.4.31"
+    kotlin("jvm") version "1.6.20"
+    `kotlin-dsl`
     `maven-publish`
     `java-gradle-plugin`
 }
 
 dependencies {
     compileOnly(gradleApi())
-    implementation("com.android.tools.build:gradle:4.1.2")
+    implementation("com.android.tools.build:gradle:7.1.3")
+    implementation(kotlin("stdlib-jdk8"))
 }
 
 repositories {
     google()
     mavenCentral()
-    jcenter()
 }
 
 publishing {
@@ -30,9 +33,17 @@ publishing {
         register("appupdaterPlugin", MavenPublication::class.java) {
             groupId = "dk.youtec"
             artifactId = "appupdater-plugin"
-            version = "1.1.0"
+            version = "1.1.1"
 
             artifact("$buildDir/libs/appupdater-plugin.jar")
         }
     }
+}
+val compileKotlin: KotlinCompile by tasks
+compileKotlin.kotlinOptions {
+    jvmTarget = "1.8"
+}
+val compileTestKotlin: KotlinCompile by tasks
+compileTestKotlin.kotlinOptions {
+    jvmTarget = "1.8"
 }
